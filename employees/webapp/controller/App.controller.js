@@ -1,15 +1,31 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller) {
-		"use strict";
+    function (Controller) {
+        "use strict";
 
-		return Controller.extend("abrahamgroup.employees.controller.App", {
-			onInit: function () {
+        
+        var Main = Controller.extend("abrahamgroup.employees.controller.App", {});
+            
 
-			}
-		});
-	});
+        Main.prototype.onValidate = function () {
+                var inputEmployee = this.byId("inputEmployee");
+                var valueEmployee = inputEmployee.getValue();
+
+                if (valueEmployee.length === 6) {
+                    this.byId("labelCountry").setVisible(true);
+                    this.byId("slCountry").setVisible(true);
+                    //inputEmployee.setDescription("Ok");
+                } else {
+                    this.byId("labelCountry").setVisible(false);
+                    this.byId("slCountry").setVisible(false);
+                    //inputEmployee.setDescription("Not Ok")
+                }
+            };
+
+        return Main;
+    });
+    

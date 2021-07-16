@@ -2,62 +2,32 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Start employees",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npm",
+      "name": "employees",
       "cwd": "${workspaceFolder}",
-      "windows": {
-        "runtimeExecutable": "npm.cmd"
-      },
       "runtimeArgs": [
         "run-script",
         "start"
       ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229,
-      "env": {
-        "DEBUG": "--inspect",
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/employees\"}"
-      }
-    },
-    {
-      "name": "Start employees Mock",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}",
       "runtimeExecutable": "npm",
-      "windows": {
-        "runtimeExecutable": "npm.cmd"
-      },
-      "runtimeArgs": [
-        "run-script",
-        "start-mock"
+      "args": [
+        "--",
+        "--ui5",
+        "--backendConfig",
+        "[{\"path\":\"/sap\",\"destination\":\"Northwind\"}]"
       ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229,
-      "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/employees\"}"
-      }
-    },
-    {
-      "name": "Start employees Local",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "npm",
       "windows": {
-        "runtimeExecutable": "npm.cmd"
+        "runtimeExecutable": "npm.cmd",
+        "args": [
+          "--",
+          "--ui5",
+          "--backendConfig",
+          "\"[{\\\"path\\\":\\\"/sap\\\",\\\"destination\\\":\\\"Northwind\\\"}]\""
+        ]
       },
-      "runtimeArgs": [
-        "run-script",
-        "start-local"
-      ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229,
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
       "env": {
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/employees\"}"
       }
